@@ -10,11 +10,12 @@ import s from './Data.module.css';
 import { SimplePerson } from '../../extras/types';
 import { useDispatch } from 'react-redux';
 import { modifyDataparts } from '../../actions';
+import PersonDetails from '../PersonDetails/PersonDetails';
 
-export default function Data({ query, id}: { query: string, id?: string }) {
-    const { loading, error, data } = useQuery(gql`
-  ${['justFive', ''].includes(query) ?
-    `query people {
+export default function Data({ query, id }: { query: string, id?: string }) {
+  const { loading, error, data } = useQuery(gql`
+  ${['justFive', ''].includes(query) && !id ?
+      `query people {
       allPeople ${query === 'justFive' ? '(first: 5)' : ''} {
         people {
           id
@@ -28,9 +29,9 @@ export default function Data({ query, id}: { query: string, id?: string }) {
         }
       }
     }`
-    :
-    `query personDetails {
-      person (id: "cGVvcGxlOjE=" ) {
+      :
+      `query personDetails {
+      person (id: ${id} ) {
           eyeColor
                 hairColor
                 skinColor
@@ -45,12 +46,16 @@ export default function Data({ query, id}: { query: string, id?: string }) {
   `);
 
   const dispatch = useDispatch();
-  
-    if (loading) return <div className={s.loading}><img src={loadingGif} className={s.loadingGif} alt='loadingGif'></img><span>Loading</span></div>;
-    if (error) return <p className={s.error}>Failed to Load Data</p>;
-    query === 'justFive' ? dispatch(modifyDataparts(1)) : dispatch(modifyDataparts(2))
 
+  if (loading) return <div className={s.loading}><img src={loadingGif} className={s.loadingGif} alt='loadingGif'></img><span>Loading</span></div>;
+  if (error) return <p className={s.error}>Failed to Load Data</p>;
+  query === 'justFive' ? dispatch(modifyDataparts(1)) : dispatch(modifyDataparts(2))
+
+  if (['justFive', ''].includes(query) && !id) {
     return data.allPeople.people.map((e: SimplePerson) => (
       <Person person={e} key={e.id} />
     ));
+  } else {
+    return <PersonDetails person={data.allPeople.person} />
   }
+}
