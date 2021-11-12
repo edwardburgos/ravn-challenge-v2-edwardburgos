@@ -39,10 +39,19 @@ export default function PersonDetails() {
             <p className={s.section}>Description</p>
             {
                 [['Eye Color', 'eyeColor'], ['Hair Color', 'hairColor'], ['Skin Color', 'skinColor'], ['Birth Year', 'birthYear']].map((e, index) =>
-                    <div className={s.item} key={index}>
-                        <p className={s.infoTitle}>{e[0]}</p>
-                        <p className={s.infoDetail}>{data.person[e[1]]}</p>
-                    </div>
+                    ['unknown', 'n/a'].includes(data.person[e[1]]) ?
+                        null
+                        :
+                        <div className={s.item} key={index}>
+                            <p className={s.infoTitle}>{e[0]}</p>
+                            <p className={s.infoDetail}>
+                                {
+                                    e[1] !== 'birthYear' ?
+                                        `${data.person[e[1]][0].toUpperCase()}${data.person[e[1]].slice(1)}`
+                                        :
+                                        data.person[e[1]]
+                                }</p>
+                        </div>
                 )
             }
             {
