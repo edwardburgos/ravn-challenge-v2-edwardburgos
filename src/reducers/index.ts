@@ -1,9 +1,9 @@
 const initialState = {
   currentPerson: "",
-  dataparts: 0 // 0 > five | 1 > five and all | 2 > all
+  dataparts: 'five'
 }
 
-export default function reducer(state = initialState, action: { type: string, currentPerson: string, dataparts: 0 | 1 | 2 }) {
+export default function reducer(state = initialState, action: { type: string, currentPerson: string, dataparts: 'five' | 'all' }) {
   switch (action.type) {
     case 'MODIFY_CURRENTPERSON':
       return {
