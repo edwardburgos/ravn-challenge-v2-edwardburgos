@@ -1,0 +1,52 @@
+.navbar {
+  padding: 16px 0 16px 33px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #121212;
+  color: white;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  margin-top: 54.4px;
+}
+
+.right {
+  width: 30%;
+  border-right: 2px solid #E5E5E5;
+  height: calc(100vh - 54.4px);
+}
+
+.loading {
+  color: #828282;
+  margin: 16px 0 0 0;
+  font-size: 17px;
+  font-weight: 700;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingGif {
+  width: 22.4px;
+  height: 22.4px;
+  margin-right: 11px;
+  vertical-align: middle;
+}
+
+.error {
+  color: #EC5757;
+  margin: 16px 0 0 0;
+  font-size: 17px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.left {
+  width: 70%
+}

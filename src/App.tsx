@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Data from './components/Data/Data';
+import s from './App.module.css';
+import { useSelector } from 'react-redux';
 
-function App() {
+export default function App() {
+  
+  const dataparts = useSelector((state: { dataparts: 0 | 1 | 2 }) => state.dataparts)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className={s.navbar}>
+        <span>Ravn Star Wars Registry</span>
+      </div>
+      <div className={s.content}>
+        <div className={s.right}>
+          {
+            dataparts === 0 || dataparts === 1 ?
+              <Data query={'justFive'}></Data>
+              :
+              null
+          }
+          {
+            dataparts === 1 || dataparts === 2 ?
+              <Data query={''}></Data>
+              :
+              null
+          }
+        </div>
+        <div className={s.left}></div>
+      </div>
     </div>
   );
 }
-
-export default App;
