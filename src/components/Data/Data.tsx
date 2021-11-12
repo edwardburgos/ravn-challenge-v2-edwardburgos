@@ -11,9 +11,10 @@ import { SimplePerson } from '../../extras/types';
 import { useDispatch } from 'react-redux';
 import { modifyDataparts } from '../../actions';
 
-export default function Data({ query }: { query: string }) {
+export default function Data({ query, id}: { query: string, id?: string }) {
     const { loading, error, data } = useQuery(gql`
-    query people {
+  ${['justFive', ''].includes(query) ?
+    `query people {
       allPeople ${query === 'justFive' ? '(first: 5)' : ''} {
         people {
           id
@@ -26,7 +27,21 @@ export default function Data({ query }: { query: string }) {
           }
         }
       }
-    }
+    }`
+    :
+    `query personDetails {
+      person (id: "cGVvcGxlOjE=" ) {
+          eyeColor
+                hairColor
+                skinColor
+                birthYear
+          vehicleConnection {
+            vehicles {
+              name
+            }
+          }
+        }
+    }`}
   `);
 
   const dispatch = useDispatch();
