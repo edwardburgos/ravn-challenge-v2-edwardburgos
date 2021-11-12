@@ -1,0 +1,55 @@
+.section {
+    margin: 0;
+    padding: 32px 0 8px 16px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.item {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.infoTitle {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+    color: #828282;
+}
+
+.infoDetail {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.container {
+    padding: 0 5%;
+}
+
+.loading {
+    color: #828282;
+    margin: 16px 0 0 0;
+    font-size: 17px;
+    font-weight: 700;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.loadingGif {
+    width: 22.4px;
+    height: 22.4px;
+    margin-right: 11px;
+    vertical-align: middle;
+}
+  
+.error {
+    color: #EC5757;
+    margin: 16px 0 0 0;
+    font-size: 17px;
+    font-weight: 700;
+    text-align: center;
+}
