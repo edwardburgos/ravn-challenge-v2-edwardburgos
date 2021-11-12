@@ -1,0 +1,28 @@
+.simplePerson {
+    padding: 16px;
+    border-bottom: 2px solid #E5E5E5;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.name {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.description {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: #828282;
+}
+
+.next {
+    height: 12px;
+}
+
+.content {
+    width: calc(100% - 12px);
+}
