@@ -1,11 +1,11 @@
 export function modifyCurrentPerson(currentPerson: string) {
     return {
-        type: 'MODIFY_CURRENT_PERSON',
+        type: 'MODIFY_CURRENTPERSON',
         currentPerson
     }
 }
 
-export function modifyDataparts(dataparts: 0 | 1 | 2) {
+export function modifyDataparts(dataparts: 'five' | 'all') {
     return {
         type: 'MODIFY_DATAPARTS',
         dataparts
