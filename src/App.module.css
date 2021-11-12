@@ -16,9 +16,10 @@
 }
 
 .right {
-  width: 30%;
+  width: 350px;
   border-right: 2px solid #E5E5E5;
-  min-height: calc(100vh - 54.4px);
+  height: calc(100vh - 54.4px);
+  overflow-y: scroll;
 }
 
 .loading {
@@ -48,5 +49,5 @@
 }
 
 .left {
-  width: 70%
+  flex: 1;
 }
