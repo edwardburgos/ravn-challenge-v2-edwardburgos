@@ -96,4 +96,7 @@
     top: auto;
     height: calc(100vh - 54.4px);
   }
+  .topPart {
+    display: none;
+  }
 }
