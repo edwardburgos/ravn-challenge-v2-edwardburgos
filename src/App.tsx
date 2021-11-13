@@ -42,7 +42,7 @@ function PeopleQuery() {
         <Person person={e} key={e.id} />
       )))
     }
-  }, [dataparts, data])
+  }, [dataparts, data, dispatch])
 
   if (loading) {
     if (!firstFive) {

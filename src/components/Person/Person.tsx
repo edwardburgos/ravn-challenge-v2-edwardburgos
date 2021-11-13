@@ -4,7 +4,6 @@ import s from './Person.module.css';
 import next from '../../assets/next.svg'
 import { useDispatch } from 'react-redux';
 import { modifyCurrentPerson } from '../../actions';
-import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 export default function Person({ person } : { person: SimplePerson}) {
